@@ -10,7 +10,7 @@
 <main class="mdl-layout__content mdl-color--grey-100">
     <div class="contenedor">
         <div class="center row TextColor">
-               usuarios sistema de puntos
+               usuarios del sistema
         </div>
         <div class="container">
             <div class="Buscar row column">
