@@ -61,6 +61,7 @@
                     for (var key in data) {
                         thead += '<th class="negra center">VIA</th>';
                         thead += '<th class="negra center">STATUS</th>';
+                        thead += '<th class="negra center">ACTUALIZADO</th>';
 
                     }
                     $.each(data, function (i, d) {
@@ -71,6 +72,7 @@
                         tbody += '<tr class="center">' +
                                       '<td>' + d[x]["VIA"] + '</td>'+
                                       '<td class="negra">' + d[x]["STATUS"] + '</td>'+
+                                      '<td class="negra">' + d[x]["ACTUALIZADO"] + '</td>'+
                                   '</tr>';
                           }                   
                     });
