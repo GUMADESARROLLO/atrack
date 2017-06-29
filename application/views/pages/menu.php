@@ -15,11 +15,26 @@
            <ul class="nav menu demo-navigation mdl-navigation__link" >
             <?php
 
-              echo '<a href="PuntosClientes"><li href="PuntosClientes"><i class="material-icons">content_copy</i> BITACORA</li></a>
+            ?>       
+            <?php 
+              switch ($this->session->userdata('RolUser')) {
+                case 'Administrador':
+              $menu ='<a href="PuntosClientes"><li href="PuntosClientes"><i class="material-icons">content_copy</i> BITACORA</li></a>
                            <a href="Usuarios"><li href="Usuarios"><i class="material-icons">account_box</i> CLIENTES</li></a>
                            <a href="#modalOpciones" class="modal-trigger"><li href="#"><i class="material-icons">settings</i> opciones</li></a>
-                           <a href="salir"> <li href="salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';;
-            ?>               
+                           <a href="salir"> <li href="salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
+                break;                
+                case 'Digitador':
+                 $menu ='<a href="PuntosClientes"><li href="PuntosClientes"><i class="material-icons">content_copy</i> BITACORA</li></a>                           
+                           <a href="#modalOpciones" class="modal-trigger"><li href="#"><i class="material-icons">settings</i> opciones</li></a>
+                           <a href="salir"> <li href="salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
+                break;
+                default:
+                  $menu = '<a href="salir"> <li href="salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
+                  break;
+              }
+              echo $menu;
+            ?>         
           </ul>
        </div>
     </div>

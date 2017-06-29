@@ -42,9 +42,11 @@
                 <th>BITACORA.</th>
                 <th>CLIENTE</th>
                 <th>PRODUCTO</th>
+                <th>FACTURA</th>
                 <th>Nº DE DOC</th>
                 <th>VIA</th>
                 <th>STATUS</th>
+                <th>ACTUALIZADO</th>
                 <th>VER</th>
             </tr>
             </thead>
@@ -74,9 +76,11 @@
                                    <td class='".$clase." center'>".$cliente['id']."</td>
                                    <td class='".$clase." center'>".$cliente['Nombre']."</td>
                                    <td class='".$clase." id='NomCliente'>".$cliente['producto']."</td>
+                                   <td class='".$clase." id='NomCliente'>".$cliente['factura']."</td>
                                    <td class='".$clase." center'>".$cliente['ndoc']."</td>
                                    <td class='".$clase." center'>".$cliente['Via']."</td>
                                    <td class='".$clase." center'>".$cliente['Estado']."</td>
+                                   <td class='".$clase." center'>".$cliente['ACTUALIZADO']."</td>
                                    <td class='".$clase." center'>"."<a onclick='getData(".$cliente['id'].",".$cliente['idcliente'].")'  href='#detalleFactura' class='modal-trigger noHover'><i class='material-icons'>create</i></a>"."</td>
                               </tr>";
 
@@ -115,6 +119,12 @@
                             ?>
                         </select>
                         <label id="labelRol" class="labelValidacion">SELECCIONE EL CLIENTE</label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="input-field col s12">
+                        <input name="Fact" placeholder="FACTURA" id="nFactura" type="text" class="required">
+                        <label id="labelnFactura" class="labelValidacion">DIGITE EL FACTURA</label>
                     </div>
                 </div>
                 <div class="row">
@@ -188,6 +198,13 @@
                         <div class="circle-clipper right"><div class="circle"></div></div>
                     </div>
                 </div>
+                 <div class="row">
+                    <label for="fecha1">Fecha de Actualizacion</label>
+                    <div class="input-field col s12 ">
+                         <input  id="fecha1" type="text" class="datepicker1">
+                        
+                    </div>
+                </div>
                 <div class="row"  >
                     <div class="input-field col s12 ">
                         <div class="input-field col s12">
@@ -206,9 +223,10 @@
                         </div>
                     </div>
                 </div>
+               
                 <div class="row">
                     <div class="input-field col s12 ">
-                        <input name="status" placeholder="STATUS" id="updstatus" type="text" class="required">
+                        <input name="status" placeholder="" id="updstatus" type="text" class="required">
                         <label id="lblupdStado" class="labelValidacion">DIGITE EL STATUS</label>
                     </div>
                 </div>

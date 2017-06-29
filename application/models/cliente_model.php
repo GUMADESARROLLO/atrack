@@ -24,6 +24,7 @@ class Cliente_model extends CI_Model
         $this->sqlsrv->close();*/
     }
     public function LoadClientsPuntos(){
+        $this->db->where("ESTADOCLIENTE","0");
         $query = $this->db->get('view_bitacora');
         if($query->num_rows() <> 0){
 
@@ -88,11 +89,13 @@ class Cliente_model extends CI_Model
             foreach ($query->result_array() as $key) {
                 $json['data'][$i]["VIA"] = $key['viaNombre'];
                 $json['data'][$i]["STATUS"] = $key['Status'];
+                $json['data'][$i]["ACTUALIZADO"] = $key['dtActualizado'];
                 $i++;
             }
         }else{
             $json['data'][$i]["VIA"] = 0;
             $json['data'][$i]["STATUS"] = 0;
+            $json['data'][$i]["ACTUALIZADO"] = 0;
 
         }
         echo json_encode($json);

@@ -160,13 +160,15 @@ class Usuario_model extends CI_Model
             echo  "1";
         }
     }
-    public function aBitcora($cls, $doc, $pro,$via,$status,$viaN) {
+    public function aBitcora($cls, $doc, $pro,$via,$status,$viaN,$fac) {
 
         $ok = "1";
 
         $Reg = array(
             'idcliente' => $cls,
             'producto'  => $pro,
+            'Factura'  => $fac,  
+            'dtCreado' =>date('Y-m-d H:i:s'),            
             'ndoc'      => $doc);
 
         $query = $this->db->insert('bitacora', $Reg);
@@ -178,6 +180,7 @@ class Usuario_model extends CI_Model
             'via'        => $via,
             'viaNombre'  => $viaN,
             'Cliente'    => $cls,
+            'dtActualizado' =>date('Y-m-d'),
             'Status'     => $status
         );
         $q2 = $this->db->insert('bitacora_log', $log_bitacora);
@@ -186,7 +189,7 @@ class Usuario_model extends CI_Model
         }
         echo $ok;
     }
-    public function uptBitcora($via,$status,$bitacora,$cliente,$viaN) {
+    public function uptBitcora($via,$status,$bitacora,$cliente,$viaN,$fecha) {
 
         $ok = "1";
 
@@ -195,6 +198,7 @@ class Usuario_model extends CI_Model
             'via'        => $via,
             'viaNombre'  => $viaN,
             'Cliente' => $cliente,
+            'dtActualizado' =>date('Y-m-d',strtotime($fecha)),
             'Status'     => $status
         );
         $q2 = $this->db->insert('bitacora_log', $log_bitacora);

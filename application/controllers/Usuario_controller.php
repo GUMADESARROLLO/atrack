@@ -16,6 +16,7 @@ class Usuario_controller extends CI_Controller
     {
         $cls = $this->input->post('cliente');
         $doc = $this->input->post('doc');
+        $fac = $this->input->post('fac');
         $pro = $this->input->post('pro');
 
         $via = $this->input->post('via');
@@ -23,7 +24,7 @@ class Usuario_controller extends CI_Controller
         $status = $this->input->post('status');
 
 
-        $this->usuario_model->aBitcora($cls, $doc, $pro,$via,$status,$viaN);
+        $this->usuario_model->aBitcora($cls, $doc, $pro,$via,$status,$viaN,$fac);
 
     }
     public function add_log()
@@ -34,9 +35,10 @@ class Usuario_controller extends CI_Controller
         $bitacora = $this->input->post('bitacora');
         $Cliente = $this->input->post('cliente');
         $viaN = $this->input->post('viaN');
+        $Fecha = $this->input->post('fecha');
 
 
-        $this->usuario_model->uptBitcora($via,$status,$bitacora,$Cliente,$viaN);
+        $this->usuario_model->uptBitcora($via,$status,$bitacora,$Cliente,$viaN,$Fecha);
 
     }
     

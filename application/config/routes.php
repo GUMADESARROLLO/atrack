@@ -124,3 +124,11 @@ $route['pdfCTAxCLIENTE/(:any)/(:any)/(:any)'] = 'exportacion_controller/pdfCTAxC
 $route['excelCTAxCLIENTE'] = 'exportacion_controller/excelCTAxCLIENTE';
 $route['ExpPDFEstadoCuenta'] ='exportacion_controller/ExpPDFEstadoCuenta';
 // FIN EXPORTACIÓN
+
+
+
+//SERVICIO REST
+$route['rLogin'] = 'rest_controller/rLogin';
+$route['rProductos'] = 'rest_controller/rProductos';
+$route['rHistorico'] = 'rest_controller/rHistorico';
+

@@ -26,6 +26,7 @@ class Login_model extends CI_Model
             return 0;
         }
     }
+
     public function cambiarPass($pass,$id)
     {
         $datos = array('Clave' => MD5($pass));

@@ -217,12 +217,14 @@ function EnviodeDatos(){
 
     var objname     = $('#labelNombre');
     var objndoc     = $('#labelndoc');
+    var objnfac     = $('#labelnFactura');
     var objStatus   = $('#labelstatus');
     var objvia      = $('#labelvia');
     var objrol      = $('#labelRol');
 
     var mNombre     = $('#NombreUser');
     var mDoc        = $('#ndoc');
+    var mFac        = $('#nFactura');
     var mStatus     = $('#status');
     var mVia        = $('#rol');
     var mClientes   = $('#rol1');
@@ -232,17 +234,20 @@ function EnviodeDatos(){
     objStatus.hide();
     objvia.hide();
     objrol.hide();
+    objnfac.hide();
 
     if (mNombre.val()=="") {objname.show(); TODO = false;}
     if (mDoc.val()=="") {objndoc.show();TODO = false;}
     if (mStatus.val()=="") {objStatus.show();TODO = false;}
     if (mVia.val()==null) {objvia.show();TODO = false;}
     if (mClientes.val()==null) {objrol.show();TODO = false;}
+    if (mFac.val()==null) {objnfac.show();TODO = false;}
 
     if (TODO){
         var form_data = {
             cliente: $("#rol1 option:selected").val(),
             doc:     mDoc.val(),
+            fac:     mFac.val(),
             pro:     mNombre.val(),
             via:     $("#rol option:selected").val(),
             viaN:    $("#rol option:selected").text(),
@@ -287,17 +292,20 @@ function ActualizarDatos(){
 
     var mStatus     = $('#updstatus');
     var mVia        = $('#updVia');
+    var mFecha      = $('#fecha1');
 
     objStatus.hide();
     objvia.hide();
 
     if (mStatus.val()=="") {objStatus.show();TODO = false;}
     if (mVia.val()==null) {objvia.show();TODO = false;}
+    if (mFecha.val()==null) { TODO = false;}
     if (TODO){
         var form_data = {
             via:     $("#updVia option:selected").val(),
             viaN:     $("#updVia option:selected").text(),
-            status:  mStatus.val(),
+            status: mStatus.val(),
+            fecha:  mFecha.val(),
             cliente: $('#spnCliente').text(),
             bitacora: $('#spnBitacora').text()
         };
